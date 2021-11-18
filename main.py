@@ -1,23 +1,21 @@
+import pip
 from DinosaurGame import *
+from ColorWheel import *
+
 
 def printMenu():
     print('\n' * 5)
     print("Welcome to Game Selection")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("~ 1. Hangman (Console)      ~")
-    print("~ 2. Dinosaur Game (Window) ~")
-    print("~ 3. Color Wheel (Window)   ~")
+    print("~ 2. Dinosaur Game (Turtle) ~")
+    print("~ 3. Color Wheel (PyGame)   ~")
     print("~ q. quit                   ~")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print()
 
 def hangman():
     print("Launching Hangman")
-
-
-def colorWheel():
-    print("Launching Color Wheel")
-
 
 def menu():
     validInputs = ["q", "1", "2", "3"]
@@ -46,9 +44,11 @@ def menu():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 
+def install():
+    pip.main(['install', 'pygame'])
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    install()
     menu()
     #dinosaurGame()

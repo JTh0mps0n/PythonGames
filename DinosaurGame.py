@@ -5,6 +5,7 @@ import turtle
 # velocity = 0
 
 def dinosaurGame():
+    """dinosaurGame: runs game until user types q"""
     print("Launching Dinosaur Game")
     global quit
     quit = False
@@ -94,7 +95,7 @@ def dinosaurGame():
                 currObs = obstacles[i]
                 currObs.setx(currObs.xcor() + obsSpeed)
 
-                if(currObs.xcor() < -1400):
+                if(currObs.xcor() < -1200):
                     currObs.setx(700)
                 dinoSize = dino.turtlesize()
                 obsSize = currObs.turtlesize()
@@ -102,7 +103,6 @@ def dinosaurGame():
                 obsRadius = obsSize[0]
                 radii = (obsRadius + dinoRadius) * 10
                 distance = currObs.distance(dino.xcor(), dino.ycor())
-                #print(radii, distance)
                 if(radii >= distance):
                     gameOver = True
 
