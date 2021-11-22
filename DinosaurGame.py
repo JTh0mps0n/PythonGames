@@ -1,5 +1,5 @@
 import turtle
-
+import pygame
 
 # onGround = True
 # velocity = 0
@@ -22,7 +22,7 @@ def dinosaurGame():
     cursor.penup()
     cursor.setundobuffer(4)
 
-
+    clock = pygame.time.Clock()
     while not quit:
         global onGround
         global velocity
@@ -31,9 +31,9 @@ def dinosaurGame():
         onGround = True
         velocity = 0
         gravity = 0
-        accel = -.00015
-        obsSpeed = -1.4
-        obsAccel = -.00005
+        accel = -.049
+        obsSpeed = -5.5
+        obsAccel = -.005
         score = 0
 
 
@@ -80,13 +80,12 @@ def dinosaurGame():
 
             #update score
             score += 1
-            if(score % 100 == 0):
-                #cursor.undo()
-                cursor.undo()
-                # cursor.setpos(400, 400)
-                # cursor.write("HIGH SCORE: " + str(highScore), font=15)
-                cursor.setpos(400, 380)
-                cursor.write("SCORE: " + str(score), font=15)
+            cursor.undo()
+            #cursor.undo()
+            #cursor.setpos(400, 400)
+            #cursor.write("HIGH SCORE: " + str(highScore), font=15)
+            cursor.setpos(400, 380)
+            cursor.write("SCORE: " + str(score), font=15)
 
 
             #move obstacles and check for collisions
@@ -119,6 +118,7 @@ def dinosaurGame():
                 gravity = 0
                 onGround = True
                 dino.sety(-90)
+            clock.tick(90)
 
         #cursor.undo()
         cursor.undo()
@@ -151,7 +151,7 @@ def jump():
     global resume
     resume = True
     if(onGround):
-        velocity = 2.2
+        velocity = 15
         onGround = False
 
 def quitGame():
