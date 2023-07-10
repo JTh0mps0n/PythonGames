@@ -6,7 +6,6 @@ def colorWheel():
     window = pygame.display.set_mode([700, 1000])
     pygame.display.set_caption("Color Wheel")
 
-
     wheel = pygame.image.load("Wheel.png")
     global wheelRect
     wheelRect = wheel.get_rect()
@@ -16,7 +15,6 @@ def colorWheel():
     wheelRect = wheel.get_rect()
     wheelRect.x = 90
     wheelRect.y = 500
-
 
     global yellow
     global cyan
@@ -29,7 +27,6 @@ def colorWheel():
     purple = (140, 20, 252)
     background = (37, 0, 83)
     colorDict = {0:yellow, 1:cyan, 2:pink, 3:purple}
-
 
     global wheelColor
     wheelColor = yellow
@@ -82,7 +79,6 @@ def colorWheel():
 
             if ballRect.y >= 550 and ballRect.y <= 625:
                 if ballColor != wheelColor:
-                    #print("game over, Score: {}".format(score))
                     keepRunning = False
 
             if ballRect.y >= 625:
@@ -95,7 +91,6 @@ def colorWheel():
                 ballRect.y = -50
                 alpha = 255
                 ballColor = colorDict[random.randint(0, 3)]
-
 
             window.blit(wheel, wheelRect)
             pygame.draw.circle(window, pygame.Color(ballColor[0], ballColor[1], ballColor[2], alpha), (ballRect.x, ballRect.y), ballRect.width)
@@ -117,7 +112,6 @@ def colorWheel():
             endText = myfont.render("Press Q to Quit", False, (255, 255, 255))
             window.blit(endText, (250, 300))
             pygame.display.update()
-
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -148,5 +142,4 @@ def rotateWheel(wheel, angle):
     return wheel
 
 def resetWheel(wheel, wheelRot):
-    #print(wheelRot)
     return rotateWheel(wheel, 360 - wheelRot * 90)

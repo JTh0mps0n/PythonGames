@@ -14,8 +14,10 @@ def printMenu():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print()
 
+
 def hangman():
     print("Launching Hangman")
+
 
 def menu():
     validInputs = ["q", "1", "2", "3"]
@@ -37,7 +39,6 @@ def menu():
         elif(userInput == 'q'):
             break
 
-
     print("\n"*5)
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("~    Thanks for playing!    ~")
@@ -51,5 +52,3 @@ def install():
 if __name__ == '__main__':
     install()
     menu()
-    #dinosaurGame()
-    #colorWheel()

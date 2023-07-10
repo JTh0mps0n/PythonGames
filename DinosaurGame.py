@@ -1,15 +1,13 @@
 import turtle
 import pygame
 
-# onGround = True
-# velocity = 0
-
 def dinosaurGame():
     """dinosaurGame: runs game until user types q"""
     print("Launching Dinosaur Game")
     global quit
     quit = False
     highScore = 0
+
     # window
     window = turtle.Screen()
     window.title("Dinosaur Game")
@@ -36,7 +34,6 @@ def dinosaurGame():
         obsAccel = -.005
         score = 0
 
-
         window.clear()
         window.tracer(0)
 
@@ -47,8 +44,6 @@ def dinosaurGame():
         dino.penup()
         dino.goto(-450, -90)
 
-
-
         #floor
         floor = turtle.Turtle()
         floor.penup()
@@ -56,7 +51,6 @@ def dinosaurGame():
         floor.color("grey")
         floor.shapesize(70)
         floor.goto(0, -800)
-
 
         #obstacles
         obstacles = []
@@ -73,17 +67,12 @@ def dinosaurGame():
         window.onkey(quitGame, 'q')
         gameOver = False
 
-
-
         while not gameOver:
             window.update()
 
             #update score
             score += 1
             cursor.undo()
-            #cursor.undo()
-            #cursor.setpos(400, 400)
-            #cursor.write("HIGH SCORE: " + str(highScore), font=15)
             cursor.setpos(400, 380)
             cursor.write("SCORE: " + str(score), font=15)
 
@@ -114,7 +103,6 @@ def dinosaurGame():
 
             #dino bounds
             if dino.ycor() < -90:
-                #print("resetting")
                 gravity = 0
                 onGround = True
                 dino.sety(-90)
@@ -145,11 +133,11 @@ def dinosaurGame():
 
 
 def jump():
-    #print("jump!")
     global velocity
     global onGround
     global resume
     resume = True
+
     if(onGround):
         velocity = 15
         onGround = False
